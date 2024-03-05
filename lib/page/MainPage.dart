@@ -23,7 +23,6 @@ class MainPageStateless extends State<MainPage>{
   ];
   int pageIndex = 0;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

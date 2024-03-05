@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onlyonly/page/HomePage.dart';
-import 'package:onlyonly/page/LoginPage.dart';
+import 'package:onlyonly/page/LoginRegPage.dart';
 import 'package:onlyonly/page/MainPage.dart';
 import 'package:onlyonly/page/UserInfoPage.dart';
 
@@ -33,8 +33,10 @@ class MainAppStateless extends State<MainApp>{
       home: const MainPage(),
       routes: {
         "login": (context) => const Login(),
+        "reg": (context) => const Reg(),
         "userInfoPage": (context) => const UserInfoPage(),
-        "home": (context) => const HomePage()
+        "home": (context) => const HomePage(),
+
       },
     );
   }

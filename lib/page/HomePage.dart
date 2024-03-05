@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onlyonly/comp/swiper.dart';
 import 'package:onlyonly/main.dart';
-import 'package:onlyonly/page/MainPage.dart';
 
 import '../comp/VideoCard.dart';
 
@@ -41,8 +40,8 @@ class HomePageStateless extends State<HomePage>{
                 backgroundColor: Colors.lightGreen,
                 leading: Container(
                   padding: const EdgeInsets.all(5),
-                  width: 60,
-                  height: 60,
+                  width: 80,
+                  height: 80,
                   child: Container(
                       clipBehavior: Clip.antiAlias, 
                       decoration: const BoxDecoration(
@@ -53,7 +52,7 @@ class HomePageStateless extends State<HomePage>{
 
                 ),
                 title: Container(
-                  height: 60,
+                  height: 80,
                   width: double.infinity,
                   // child: ,顶部
                 ),
@@ -91,6 +90,9 @@ class Head extends StatelessWidget{
     );
   }
 }
+
+
+
 class NoLogin extends StatelessWidget{
   const NoLogin({super.key});
 
