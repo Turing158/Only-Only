@@ -21,7 +21,7 @@ class MainPageStateless extends State<MainPage>{
     MsgPage(),
     UserPage(),
   ];
-  int pageIndex = 0;
+  int pageIndex = 3;
 
   @override
   Widget build(BuildContext context) {

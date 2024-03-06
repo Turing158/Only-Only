@@ -40,12 +40,13 @@ class HomePageStateless extends State<HomePage>{
                 backgroundColor: Colors.lightGreen,
                 leading: Container(
                   padding: const EdgeInsets.all(5),
-                  width: 80,
-                  height: 80,
+                  width: 45,
+                  height: 45,
                   child: Container(
                       clipBehavior: Clip.antiAlias, 
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
+                        color: Colors.blueGrey
                     ),
                     child: MainAppStateless.isLogin ? Head() : NoLogin(),
                   ),
@@ -86,7 +87,17 @@ class Head extends StatelessWidget{
       onTap: (){
         Navigator.pushNamed(context, "userInfoPage");
       },
-      child: Image.network("https://www.z4a.net/images/2024/02/22/head.th.jpg"),
+      child: Center(
+        child: Container(
+          width: 42,
+          height: 42,
+          clipBehavior: Clip.antiAlias,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle
+          ),
+          child: Image.network("https://www.z4a.net/images/2024/02/22/head.th.jpg"),
+        ),
+      ),
     );
   }
 }

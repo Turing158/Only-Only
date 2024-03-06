@@ -23,7 +23,7 @@ class MainApp extends StatefulWidget{
 }
 
 class MainAppStateless extends State<MainApp>{
-  static bool isLogin = false;
+  static bool isLogin = true;
 
 
   @override
@@ -34,7 +34,7 @@ class MainAppStateless extends State<MainApp>{
       routes: {
         "login": (context) => const Login(),
         "reg": (context) => const Reg(),
-        "userInfoPage": (context) => const UserInfoPage(),
+        "userInfo": (context) => const UserInfoPage(),
         "home": (context) => const HomePage(),
 
       },

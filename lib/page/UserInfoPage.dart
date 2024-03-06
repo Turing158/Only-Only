@@ -17,7 +17,7 @@ class UserInfoPageStateless extends State<UserInfoPage>{
       appBar: AppBar(
         title: const Text("用户信息"),
       ),
-      body: Center(),
+      body: Text("用户信息")
     );
   }
 
