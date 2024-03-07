@@ -21,11 +21,12 @@ class MainPageStateless extends State<MainPage>{
     MsgPage(),
     UserPage(),
   ];
-  int pageIndex = 3;
+  int pageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(241, 241, 241, 1),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home, color: pageIndex == 0 ? Colors.brown : Colors.indigo,),label: "首页"),

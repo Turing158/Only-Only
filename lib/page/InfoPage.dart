@@ -29,6 +29,7 @@ class InfoPageStateless extends State<InfoPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(241, 241, 241, 1),
       body: CustomScrollView(
         slivers: [
           const SliverSafeArea(

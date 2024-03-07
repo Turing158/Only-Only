@@ -13,23 +13,19 @@ class HomePage extends StatefulWidget{
   }
 }
 
-List<Widget> list = [
-  VideoCard(title: "震惊！",imgNetSrc: "https://www.z4a.net/images/2024/02/22/image-20240221222754434.png",up: "牛子精灵",func: (){},),
-  VideoCard(title: "震惊！tmd开学了",imgNetSrc: "https://www.z4a.net/images/2024/02/22/image-20240221222754434.png",up: "牛子精灵",func: (){},),
-  VideoCard(title: "震惊！tmd开学了",imgNetSrc: "https://www.z4a.net/images/2024/02/22/image-20240221222754434.png",up: "牛子精灵",func: (){},),
-  VideoCard(title: "震惊！tmd开学了",imgNetSrc: "https://www.z4a.net/images/2024/02/22/image-20240221222754434.png",up: "牛子精灵",func: (){},),
-  VideoCard(title: "震惊！tmd开学了",imgNetSrc: "https://www.z4a.net/images/2024/02/22/image-20240221222754434.png",up: "牛子精灵",func: (){},),
-  VideoCard(title: "震惊！tmd开学了",imgNetSrc: "https://www.z4a.net/images/2024/02/22/image-20240221222754434.png",up: "牛子精灵",func: (){},),
-  VideoCard(title: "震惊！tmd开学了",imgNetSrc: "https://www.z4a.net/images/2024/02/22/image-20240221222754434.png",up: "牛子精灵",func: (){},),
-  VideoCard(title: "震惊！tmd开学了",imgNetSrc: "https://www.z4a.net/images/2024/02/22/image-20240221222754434.png",up: "牛子精灵",func: (){},),
-
-];
+List<Widget> list = [];
 
 class HomePageStateless extends State<HomePage>{
   int imgIndex = 0;
   @override
   Widget build(BuildContext context) {
+    for(int i=0;i<15;i++){
+      list.add(
+          VideoCard(title: "震惊！标题${i+1}",imgNetSrc: "https://www.z4a.net/images/2024/02/22/image-20240221222754434.png",up: "牛子精灵",func: (){Navigator.pushNamed(context, "detail");},)
+      );
+    }
     return Scaffold(
+      backgroundColor: Color.fromRGBO(241, 241, 241, 1),
       body: CustomScrollView(
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
@@ -50,7 +46,6 @@ class HomePageStateless extends State<HomePage>{
                     ),
                     child: MainAppStateless.isLogin ? Head() : NoLogin(),
                   ),
-
                 ),
                 title: Container(
                   height: 80,
@@ -85,7 +80,7 @@ class Head extends StatelessWidget{
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.pushNamed(context, "userInfoPage");
+        Navigator.pushNamed(context, "userInfo");
       },
       child: Center(
         child: Container(

@@ -16,6 +16,7 @@ class UserPageStateless extends State<UserPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(241, 241, 241, 1),
       body: CustomScrollView(
         slivers: [
           const SliverSafeArea(sliver: SliverAppBar(
@@ -28,7 +29,7 @@ class UserPageStateless extends State<UserPage>{
                 height: 120,
                 clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
-                  color: const Color.fromRGBO(241, 241, 241, 1),
+                  color: const Color.fromRGBO(250, 250, 250, 1),
                   borderRadius: BorderRadius.circular(10)
                 ),
                 child: GestureDetector(
@@ -41,7 +42,7 @@ class UserPageStateless extends State<UserPage>{
                   },
                   child: Container(
                     width: 210,
-                    color: const Color.fromRGBO(241, 241, 241, 1),
+                    color: const Color.fromRGBO(250, 250, 250, 1),
                     child: MainAppStateless.isLogin ? IsLogin(nickname: "NickName",head: "https://www.z4a.net/images/2024/02/22/head.th.jpg",lv: 1,nowLevel: 132,endLevel: 320,) : const NotLogin(),
                   )
                 )

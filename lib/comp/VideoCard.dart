@@ -18,10 +18,10 @@ class VideoCard extends StatelessWidget{
     return Container(
       padding: const EdgeInsets.all(5),
       child: GestureDetector(
-        onTap: (){},
+        onTap: func,
         child: Container(
           decoration: const BoxDecoration(
-            color: Color.fromRGBO(241, 241, 241, 1.0),
+            color: Color.fromRGBO(250, 250, 250, 1),
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
           clipBehavior: Clip.antiAliasWithSaveLayer,

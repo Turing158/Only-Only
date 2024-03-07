@@ -29,7 +29,7 @@ class TrendsCard extends StatelessWidget{
         child: Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: const Color.fromRGBO(241, 241, 241, 1)
+              color: const Color.fromRGBO(250, 250, 250, 1)
           ),
           child: Flex(
             direction: Axis.vertical,
