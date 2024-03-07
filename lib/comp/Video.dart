@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-class VideoScreen extends StatefulWidget{
-  const VideoScreen({super.key});
+class Video extends StatefulWidget{
+  const Video({super.key});
 
 
   @override
-  State<VideoScreen> createState() {
-    return VideoScreenState();
+  State<Video> createState() {
+    return VideoState();
   }
 
 }
 
-class VideoScreenState extends State<VideoScreen>{
+class VideoState extends State<Video>{
   late VideoPlayerController _controller;
   late Future<void> _initializeVideoPlayerFuture;
 
