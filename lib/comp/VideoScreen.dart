@@ -17,8 +17,9 @@ class VideoScreen extends StatefulWidget{
 
 class VideoScreenStateless extends State<VideoScreen>{
   bool flag = false;
-  bool flagController = false;
+  bool flagPause = false;
   late Timer t = Timer(Duration(milliseconds: 1), () { });
+  Video video = Video();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,6 @@ class VideoScreenStateless extends State<VideoScreen>{
             onTapDown: (e){
               setState(() {
                 flag = !flag;
-                flagController = true;
                 if(t.isActive){
                   t.cancel();
                 }
@@ -41,7 +41,7 @@ class VideoScreenStateless extends State<VideoScreen>{
               height: 300,
               width: double.infinity,
               color: Colors.blueGrey,
-              child: const Video(),
+              child: video,
             ),
           ),
           Align(
@@ -54,15 +54,10 @@ class VideoScreenStateless extends State<VideoScreen>{
                   t = Timer(const Duration(seconds: 2), () {
                     setState(() {
                       flag = false;
-                      t = Timer(Duration(seconds: 2), () {
-                        setState(() {
-                          flagController = false;
-                        });
-                      });
                     });
                   });
                 },
-                child: flagController ? Container(
+                child: Container(
                     height: 40,
                     child: Flex(
                       direction: Axis.horizontal,
@@ -72,6 +67,7 @@ class VideoScreenStateless extends State<VideoScreen>{
                           child: GestureDetector(
                             onTap: (){
                               Navigator.pop(context);
+                              video.pause();
                             },
                             child: Icon(Icons.arrow_back_ios_new),
                           ),
@@ -93,10 +89,93 @@ class VideoScreenStateless extends State<VideoScreen>{
                         )
                       ],
                     )
-                ):Container(),
+                ),
               )
           ),
-
+          Align(
+              alignment: Alignment.bottomCenter,
+              child: AnimatedOpacity(
+                duration: Duration(milliseconds: 300),
+                opacity: flag ? 1 : 0,
+                curve: Curves.easeInOut,
+                onEnd: (){
+                  t = Timer(const Duration(seconds: 2), () {
+                    setState(() {
+                      flag = false;
+                    });
+                  });
+                },
+                child: Container(
+                    height: 40,
+                    child: Flex(
+                      direction: Axis.horizontal,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(left: 10),
+                          child: flag ? GestureDetector(
+                            onTap: (){
+                              setState(() {
+                                video.play();
+                                if(t.isActive){
+                                  t.cancel();
+                                }
+                              });
+                              t = Timer(Duration(seconds: 2), () {
+                                setState(() {
+                                  flag = false;
+                                });
+                              });
+                            },
+                            child: Icon(Icons.pause),
+                          ) : GestureDetector(
+                            onTap: (){
+                              setState(() {
+                                video.pause();
+                              });
+                            },
+                            child: Icon(Icons.play_arrow),
+                          ),
+                        ),
+                        Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                GestureDetector(
+                                  child: Icon(Icons.volume_down),
+                                ),
+                                Container(width: 20,),
+                                GestureDetector(
+                                  child: Icon(Icons.fullscreen),
+                                ),
+                                Container(width: 10,),
+                              ],
+                            )
+                        )
+                      ],
+                    )
+                ),
+              )
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: flagPause ? GestureDetector(
+              child: Icon(Icons.play_arrow),
+              onTap: (){
+                setState(() {
+                  video.pause();
+                  flagPause = true;
+                });
+              },
+            ) : GestureDetector(
+              child: Icon(Icons.pause),
+              onTap: (){
+                setState(() {
+                  video.play();
+                  flagPause = false;
+                });
+              },
+            ),
+          )
         ],
       ),
     );

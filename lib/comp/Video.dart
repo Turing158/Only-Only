@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 class Video extends StatefulWidget{
-  const Video({super.key});
+  Video({super.key});
 
-
+  VideoState videoState = VideoState();
+  void pause(){
+    videoState.pause();
+  }
+  void play(){
+    videoState.play();
+  }
   @override
   State<Video> createState() {
-    return VideoState();
+    return videoState;
   }
 
 }
@@ -22,29 +28,35 @@ class VideoState extends State<Video>{
     _controller.setLooping(true);
     super.initState();
   }
-@override
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();
   }
 
+  void pause(){
+    _controller.pause();
+  }
+  void play(){
+    _controller.play();
+  }
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: _initializeVideoPlayerFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            _controller.play();
-            return AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: VideoPlayer(_controller),
-            );
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        },
+      future: _initializeVideoPlayerFuture,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          _controller.play();
+          return AspectRatio(
+            aspectRatio: _controller.value.aspectRatio,
+            child: VideoPlayer(_controller),
+          );
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
     );
   }
 
