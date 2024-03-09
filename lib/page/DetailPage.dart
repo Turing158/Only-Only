@@ -21,10 +21,13 @@ class DetailPageStateless extends State<DetailPage>{
           child: Flex(
             direction: Axis.vertical,
             children: [
+              // Expanded(child: VideoScreen())
               VideoScreen(),
               Expanded(
                   child: CustomScrollView(
-                    slivers: [],
+                    slivers: [
+
+                    ],
                   )
               )
             ],

@@ -10,6 +10,9 @@ class Video extends StatefulWidget{
   void play(){
     videoState.play();
   }
+  void disPose(){
+    videoState.dispose();
+  }
   @override
   State<Video> createState() {
     return videoState;
@@ -26,6 +29,7 @@ class VideoState extends State<Video>{
     _controller = VideoPlayerController.network("https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
     _initializeVideoPlayerFuture = _controller.initialize();
     _controller.setLooping(true);
+    _controller.dispose();
     super.initState();
   }
   @override
@@ -39,6 +43,10 @@ class VideoState extends State<Video>{
   }
   void play(){
     _controller.play();
+  }
+
+  void disPose(){
+    _controller.dispose();
   }
   @override
   Widget build(BuildContext context) {

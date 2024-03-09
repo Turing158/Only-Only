@@ -27,8 +27,13 @@ class MainAppStateless extends State<MainApp>{
   static bool isLogin = true;
 
 
+  static double height = 0;
+  static double width = 0;
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    height = screenSize.height;
+    width = screenSize.width;
     return MaterialApp(
       title: "only-only",
       home: const MainPage(),
