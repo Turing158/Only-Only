@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onlyonly/comp/VideoScreen.dart';
+import 'package:onlyonly/main.dart';
 
 class DetailPage extends StatefulWidget{
   const DetailPage({super.key});
@@ -21,12 +22,14 @@ class DetailPageStateless extends State<DetailPage>{
           child: Flex(
             direction: Axis.vertical,
             children: [
-              // Expanded(child: VideoScreen())
+              // Expanded(child: VideoScreen()),
               VideoScreen(),
               Expanded(
                   child: CustomScrollView(
                     slivers: [
-
+                      SliverToBoxAdapter(
+                        
+                      )
                     ],
                   )
               )
